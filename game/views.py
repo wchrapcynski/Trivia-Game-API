@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from rest_framework import generics
+from . serializers import TriviaSerializer
 from . models import Trivia
-# Create your views here.
 
-Class TriviaList(generics.ListAPIView):
+class TriviaList(generics.ListAPIView):
     model = Trivia
     queryset = Trivia.objects.order_by('id')

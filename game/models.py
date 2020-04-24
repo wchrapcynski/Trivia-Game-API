@@ -3,8 +3,12 @@ from django_mysql.models import ListTextField
 
 class Trivia(models.Model):
     question = models.TextField()
-    answers = models.ListTextField(
-        base_field=TextField(),
-        size=4
+    answers = ListTextField(
+        base_field=models.CharField(max_length=300),
+        size=4,
+        max_length=(6 * 11)
     )
     published = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.question
