@@ -1,7 +1,7 @@
 from django.db import models
 from django_mysql.models import ListTextField
 
-class Trivia(models.Model):
+class TriviaQuestion(models.Model):
     question = models.TextField()
     answers = ListTextField(
         base_field=models.CharField(max_length=300),

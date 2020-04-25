@@ -1,4 +1,8 @@
 from django.contrib import admin
-from . models import Trivia
+from . models import TriviaQuestion
 
-admin.site.register(Trivia)
+class TriviaAdmin(admin.ModelAdmin):
+    fields = ['question', 'answers']
+    list_display = ['question', 'answers']
+
+admin.site.register(TriviaQuestion)

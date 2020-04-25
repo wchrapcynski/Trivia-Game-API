@@ -1,7 +1,8 @@
 from rest_framework import generics
 from . serializers import TriviaSerializer
-from . models import Trivia
+from . models import TriviaQuestion
 
 class TriviaList(generics.ListAPIView):
-    model = Trivia
-    queryset = Trivia.objects.order_by('id')
+    model = TriviaQuestion
+    queryset = TriviaQuestion.objects.order_by('id')
+    serializer_class = TriviaSerializer
