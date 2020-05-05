@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django_mysql.models import ListTextField
 
 class TriviaQuestion(models.Model):
@@ -13,3 +14,11 @@ class TriviaQuestion(models.Model):
 
     def __str__(self):
         return self.question
+
+class LeaderBoardRank(models.Model):
+    email = models.EmailField(max_length=254)
+    score = models.IntegerField()
+    date = models.DateField()
+
+    def __str__(self):
+        return self.email
