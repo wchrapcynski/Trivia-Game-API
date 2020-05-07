@@ -1,15 +1,17 @@
 from django.contrib import admin
-from . models import TriviaQuestion
-from . models import LeaderBoardRank
+from . import models
 
-class TriviaAdmin(admin.ModelAdmin):
-    fields = ['question', 'answers']
-    list_display = ['question', 'answers']
+class TriviaQuestionAdmin(admin.ModelAdmin):
+    fields = ['category', 'question', 'answer', 'choice1', 'choice2', 'choice3', 'choice4', 'published']
+    list_display = ['question', 'category', 'published', 'id']
+    search_fields = ['question', 'category']
+    list_editable = ['published']
 
-admin.site.register(TriviaQuestion)
+admin.site.register(models.TriviaQuestion, TriviaQuestionAdmin)
+
 
 class LeaderBoardRankAdmin(admin.ModelAdmin):
     fields = ['email', 'score', 'date']
     list_display = ['email', 'score', 'date']
 
-admin.site.register(LeaderBoardRank)
+admin.site.register(models.LeaderBoardRank, LeaderBoardRankAdmin)

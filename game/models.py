@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils import timezone
-from django_mysql.models import ListTextField
 
 class TriviaQuestion(models.Model):
-    question = models.TextField(null=True)
-    answers = ListTextField(
-        base_field=models.CharField(max_length=300),
-        size=4,
-        max_length=(6 * 11)
-    )
-    category = models.CharField(max_length=300, null=True)
+    category = models.CharField(max_length=50, null=True)
     published = models.BooleanField(default=False)
+    question = models.TextField(max_length=160, null=True)
+    answer = models.IntegerField(choices=((0, 'Choice1'), (1, 'Choice2'), (2, 'Choice3'), (3, 'Choice4')), default=0)
+    choice1 = models.TextField(max_length=55, null=True)
+    choice2 = models.TextField(max_length=55, null=True)
+    choice3 = models.TextField(max_length=55, null=True)
+    choice4 = models.TextField(max_length=55, null=True)
 
     def __str__(self):
         return self.question
