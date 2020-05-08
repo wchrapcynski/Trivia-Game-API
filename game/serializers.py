@@ -6,11 +6,6 @@ class TriviaQuestionSerializer(serializers.ModelSerializer):
         model = TriviaQuestion
         fields = "__all__"
 
-class TriviaQuestionPublishedIdsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TriviaQuestion
-        fields = ["id"]
-
 class LeaderBoardRankSerializer(serializers.ModelSerializer):
     class Meta:
         model = LeaderBoardRank
