@@ -33,5 +33,5 @@ class TriviaQuestion(generics.RetrieveAPIView):
 
 class LeaderBoardRankList(generics.ListAPIView):
     model = LeaderBoardRank
-    queryset = LeaderBoardRank.objects.order_by('id')
+    queryset = LeaderBoardRank.objects.order_by('-score')[:3]
     serializer_class = LeaderBoardRankSerializer
