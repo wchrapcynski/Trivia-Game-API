@@ -16,6 +16,7 @@ class TriviaQuestion(models.Model):
 
 class LeaderBoardRank(models.Model):
     email = models.EmailField(max_length=254)
+    initials = models.CharField(max_length=3, null=False, default="***")
     score = models.IntegerField()
     date = models.DateField()
 

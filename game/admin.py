@@ -11,7 +11,7 @@ admin.site.register(models.TriviaQuestion, TriviaQuestionAdmin)
 
 
 class LeaderBoardRankAdmin(admin.ModelAdmin):
-    fields = ['email', 'score', 'date']
-    list_display = ['email', 'score', 'date']
+    fields = ['email', 'score', 'date', 'initials']
+    list_display = ['email', 'score', 'date', 'initials']
 
 admin.site.register(models.LeaderBoardRank, LeaderBoardRankAdmin)
