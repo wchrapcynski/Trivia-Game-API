@@ -35,3 +35,8 @@ class LeaderBoardRankList(generics.ListAPIView):
     model = LeaderBoardRank
     queryset = LeaderBoardRank.objects.order_by('-score')[:3]
     serializer_class = LeaderBoardRankSerializer
+
+class LeaderBoardRankUpdate(generics.CreateAPIView):
+    model = LeaderBoardRank
+    queryset = LeaderBoardRank.objects
+    serializer_class = LeaderBoardRankSerializer
