@@ -17,7 +17,7 @@ class TriviaPublishedIdsList(generics.ListAPIView):
     serializer_class = TriviaQuestionSerializer
 
     def list(self, request):
-        return Response(self.get_queryset().values_list("id", flat=True))
+        return Response(self.get_queryset().values_list("id",  ))
 
 class TriviaCategorySearch(generics.ListAPIView):
     model = TriviaQuestion
@@ -34,9 +34,4 @@ class TriviaQuestion(generics.RetrieveAPIView):
 class LeaderBoardRankList(generics.ListAPIView):
     model = LeaderBoardRank
     queryset = LeaderBoardRank.objects.order_by('-score')[:3]
-    serializer_class = LeaderBoardRankSerializer
-
-class LeaderBoardRankUpdate(generics.CreateAPIView):
-    model = LeaderBoardRank
-    queryset = LeaderBoardRank.objects
     serializer_class = LeaderBoardRankSerializer
